@@ -196,7 +196,7 @@ blend_point_3/pos = Vector2(0, -1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yw30f"]
-animation = &"run_right"
+animation = &"stand_right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qjkh3"]
 animation = &"stand_up"
@@ -222,8 +222,12 @@ blend_mode = 1
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8t03j"]
+advance_mode = 2
+advance_expression = "	input_vector.length() > 0.0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ieo8"]
+advance_mode = 2
+advance_expression = "input_vector.length() == 0.0"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g1dw6"]
 states/RunState/node = SubResource("AnimationNodeBlendSpace2D_g1dw6")
@@ -242,6 +246,7 @@ states/MoveState/position = Vector2(509, 100)
 transitions = ["Start", "MoveState", SubResource("AnimationNodeStateMachineTransition_yw30f")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_g6k8r"]
+graph_offset = Vector2(-381.96573, 54.88745)
 nodes/output/position = Vector2(340, 220)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_qjkh3")
 nodes/StateMachine/position = Vector2(40, 160)
@@ -264,6 +269,7 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_g6k8r")
+advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
-parameters/StateMachine/MoveState/RunState/blend_position = Vector2(0, 0.36328125)
+parameters/StateMachine/MoveState/RunState/blend_position = Vector2(0.0035842657, -0.43661976)
 parameters/StateMachine/MoveState/StandState/blend_position = Vector2(0.0015949011, -0.2734375)

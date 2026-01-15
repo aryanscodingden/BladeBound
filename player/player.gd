@@ -19,15 +19,17 @@ func _physics_process(_delta: float) -> void:
 				var direction_vector: = Vector2(input_vector.x, -input_vector.y)
 				update_blend_positions(direction_vector)
 				
-				if Input.is_action_just_pressed("attack"):
-					playback.travel("AttackState")
-				if Input.is_action_just_pressed("roll"):
-					playback.travel("RollState")
-					
-				velocity = input_vector * speed
-				move_and_slide()
+			if Input.is_action_just_pressed("attack"):
+				playback.travel("AttackState")
+				return
+			if Input.is_action_just_pressed("roll"):
+				playback.travel("RollState")
+				return
+			
+			velocity = input_vector * speed
+			move_and_slide()
 		"AttackState":
-			pass
+			velocity = Vector2.ZERO
 		"RollState":
 			velocity = last_input_vector * ROLL_SPEED
 			move_and_slide()

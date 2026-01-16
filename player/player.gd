@@ -31,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 		"AttackState":
 			velocity = Vector2.ZERO
 		"RollState":
-			velocity = last_input_vector * ROLL_SPEED
+			velocity = last_input_vector.normalized() * ROLL_SPEED
 			move_and_slide()
 			pass
 		

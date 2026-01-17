@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 const speed = 100.0 
 const ROLL_SPEED = 125.0
+const attack_duration = 0.50
+
 
 var input_vector = Vector2.ZERO
 var last_input_vector = Vector2.ZERO
-
+var attack_timer := 0.0
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
 func _physics_process(_delta: float) -> void:
@@ -30,10 +32,15 @@ func _physics_process(_delta: float) -> void:
 			move_and_slide()
 		"AttackState":
 			velocity = Vector2.ZERO
+			attack_timer = _delta
+			
+			if attack_timer <= 0.0:
+				playback.travel("MoveState")
 		"RollState":
 			velocity = last_input_vector.normalized() * ROLL_SPEED
 			move_and_slide()
 			pass
+
 		
 func update_blend_positions(direction_vector: Vector2) -> void:
 		animation_tree.set("parameters/StateMachine/MoveState/RunState/blend_position", direction_vector)

@@ -28,6 +28,10 @@ window/vsync/vsync_mode=3
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+Sword=""
+
 [input]
 
 move_right={

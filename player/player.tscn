@@ -458,9 +458,7 @@ nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_qjkh3")
 nodes/StateMachine/position = Vector2(40, 160)
 node_connections = [&"output", 0, &"StateMachine"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
-radius = 5.0
-height = 26.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -494,6 +492,11 @@ position = Vector2(153, 88)
 process_callback = 0
 position_smoothing_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(150, 88)
-shape = SubResource("CapsuleShape2D_rkbax")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(151, 101, 146, 94, 151, 88, 156, 94)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(150, 94)
+shape = SubResource("CircleShape2D_rkbax")

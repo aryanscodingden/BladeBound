@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dyhi1cc0sso70"]
+[gd_scene load_steps=9 format=4 uid="uid://dyhi1cc0sso70"]
 
 [ext_resource type="PackedScene" uid="uid://b6jximq1jll0r" path="res://player/player.tscn" id="1_f3sb7"]
 [ext_resource type="TileSet" uid="uid://dunsj1g8nwopm" path="res://world/dirt_tileset.tres" id="2_dwbse"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkmjvllexmsh1" path="res://world/tree.tscn" id="4_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://d0umi2xqi0bt4" path="res://world/bush.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://bjgeiy3x3xt2n" path="res://world/grass.tscn" id="7_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://colrmviavkp8y" path="res://enemies/bat_enemy.tscn" id="8_gbfbk"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -110,9 +111,6 @@ position = Vector2(40, 72)
 [node name="Grass4" parent="." instance=ExtResource("7_pkg7o")]
 position = Vector2(56, 72)
 
-[node name="Grass43" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(232, 0)
-
 [node name="Grass5" parent="." instance=ExtResource("7_pkg7o")]
 position = Vector2(40, 88)
 
@@ -176,12 +174,6 @@ position = Vector2(312, 360)
 [node name="Grass36" parent="." instance=ExtResource("7_pkg7o")]
 position = Vector2(72, 56)
 
-[node name="Grass45" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(264, 0)
-
-[node name="Grass44" parent="." instance=ExtResource("7_pkg7o")]
-position = Vector2(248, 0)
-
 [node name="Grass37" parent="." instance=ExtResource("7_pkg7o")]
 position = Vector2(72, 40)
 
@@ -238,3 +230,9 @@ position = Vector2(480, 104)
 
 [node name="Grass20" parent="." instance=ExtResource("7_pkg7o")]
 position = Vector2(496, 104)
+
+[node name="BatEnemy" parent="." instance=ExtResource("8_gbfbk")]
+position = Vector2(32, 168)
+
+[node name="BatEnemy2" parent="." instance=ExtResource("8_gbfbk")]
+position = Vector2(312, 224)

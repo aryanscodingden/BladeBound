@@ -582,7 +582,7 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rkbax")
 nodes/TimeScale/position = Vector2(397, 209.5)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"StateMachine"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 y_sort_enabled = true
 disable_mode = 2

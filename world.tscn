@@ -231,8 +231,10 @@ position = Vector2(480, 104)
 [node name="Grass20" parent="." instance=ExtResource("7_pkg7o")]
 position = Vector2(496, 104)
 
-[node name="BatEnemy" parent="." instance=ExtResource("8_gbfbk")]
+[node name="BatEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_gbfbk")]
 position = Vector2(32, 168)
+player = NodePath("../Player")
 
-[node name="BatEnemy2" parent="." instance=ExtResource("8_gbfbk")]
-position = Vector2(312, 224)
+[node name="BatEnemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_gbfbk")]
+position = Vector2(313, 224)
+player = NodePath("../Player")

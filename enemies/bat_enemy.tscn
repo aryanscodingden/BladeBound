@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cuq66us1fgsog" path="res://shadows/small_shadow.png" id="2_5gx0a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_erta8"]
-radius = 5.8309517
+radius = 5.0
 
 [sub_resource type="Animation" id="Animation_5gx0a"]
 length = 0.001
@@ -57,11 +57,10 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e7gs6"]
 advance_mode = 2
-advance_expression = "is_player_in_range()
-"
+advance_expression = "can_see_player()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5gx0a"]
-advance_expression = "not is_player_in_range()"
+advance_expression = "not can_see_player()"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5gx0a"]
 states/Chase/node = SubResource("AnimationNodeAnimation_5gx0a")
@@ -78,6 +77,8 @@ nodes/StateMachine/position = Vector2(20, 100)
 node_connections = [&"output", 0, &"StateMachine"]
 
 [node name="BatEnemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_5gx0a")
 
@@ -92,7 +93,7 @@ position = Vector2(1, -1)
 texture = ExtResource("2_5gx0a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -3)
+position = Vector2(1, -4)
 shape = SubResource("CircleShape2D_erta8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -106,3 +107,7 @@ root_node = NodePath("../ShadowSprite2D")
 tree_root = SubResource("AnimationNodeBlendTree_grp10")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(8, 0)
+collision_mask = 3

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @export var RangePlayer:= 104
-const speed = 30 
+const speed = 30
+const friction = 500 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
@@ -10,16 +11,17 @@ const speed = 30
 
 func _ready() -> void:
 	area_2d.area_entered.connect(func(other_area_2d: Area2D):
+		velocity = other_area_2d.knockback_direction * 100
+		playback.start("HitState")
+		print("Changed to HitState eheheh")
 		queue_free()
 	)
-	
-	
-	
+
 func _physics_process(_delta: float) -> void:
 	var state = playback.get_current_node()
 	match state:
-		"Idle": pass
-		"Chase": 
+		"IdleState": pass
+		"ChaseState": 
 			player = get_player()
 			if player is Player:
 				velocity = global_position.direction_to(player.global_position) * speed
@@ -27,7 +29,9 @@ func _physics_process(_delta: float) -> void:
 				velocity = Vector2.ZERO
 				#sprite_2d.scale.x = sign(velocity.x)
 			move_and_slide()
-			
+		"HitState":
+			velocity = velocity.move_toward(Vector2.ZERO, friction * _delta)
+			move_and_slide()
 func get_player() -> Player:
 	return get_tree().get_first_node_in_group("player")
 	

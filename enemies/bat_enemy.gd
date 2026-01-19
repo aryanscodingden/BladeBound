@@ -6,7 +6,15 @@ const speed = 30
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
 @export var player: Player
+@onready var area_2d: Area2D = $Area2D
 
+func _ready() -> void:
+	area_2d.area_entered.connect(func(other_area_2d: Area2D):
+		queue_free()
+	)
+	
+	
+	
 func _physics_process(_delta: float) -> void:
 	var state = playback.get_current_node()
 	match state:

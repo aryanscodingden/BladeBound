@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://colrmviavkp8y"]
+[gd_scene load_steps=16 format=3 uid="uid://colrmviavkp8y"]
 
 [ext_resource type="Script" uid="uid://bjvl0vyastnh8" path="res://enemies/bat_enemy.gd" id="1_5gx0a"]
 [ext_resource type="Texture2D" uid="uid://1aoe5e3ooxml" path="res://enemies/bat.png" id="1_e7gs6"]
@@ -76,6 +76,9 @@ nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_5gx0a")
 nodes/StateMachine/position = Vector2(20, 100)
 node_connections = [&"output", 0, &"StateMachine"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5gx0a"]
+radius = 3.0
+
 [node name="BatEnemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 7
@@ -84,7 +87,7 @@ script = ExtResource("1_5gx0a")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["player"]]
 texture = ExtResource("1_e7gs6")
-offset = Vector2(0, -5)
+offset = Vector2(-1, -5)
 flip_h = true
 hframes = 5
 
@@ -94,7 +97,7 @@ position = Vector2(1, -1)
 texture = ExtResource("2_5gx0a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -4)
+position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_erta8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -112,3 +115,9 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(8, 0)
 collision_mask = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_5gx0a")

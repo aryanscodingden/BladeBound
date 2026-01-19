@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b6jximq1jll0r"]
+[gd_scene load_steps=53 format=3 uid="uid://b6jximq1jll0r"]
 
 [ext_resource type="Texture2D" uid="uid://dnhvq8ohnbqvf" path="res://player/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://etqx0u5dg647" path="res://player/player.gd" id="2_rkbax"]
@@ -582,10 +582,6 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rkbax")
 nodes/TimeScale/position = Vector2(397, 209.5)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"StateMachine"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
-radius = 4.0
-height = 14.0
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 y_sort_enabled = true
@@ -622,14 +618,8 @@ process_callback = 0
 position_smoothing_enabled = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(-149, -89)
 polygon = PackedVector2Array(151, 103, 146, 96, 151, 90, 156, 96)
-disabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 8)
-shape = SubResource("CapsuleShape2D_rkbax")
 
 [node name="SwordHitbox" type="Area2D" parent="." groups=["Sword"]]
 

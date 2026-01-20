@@ -1,18 +1,23 @@
 extends CharacterBody2D
+
+@export var player: Player
 @export var RangePlayer:= 104
+
+@export var range: = 128
+@export var stats: stats
+
 const speed = 30
 const friction = 500 
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
-@export var player: Player
 @onready var area_2d: Area2D = $Area2D
 
 func _ready() -> void:
-	area_2d.area_entered.connect(take_hit.call_deferred)
-	
-	
+	area_2d.area_entered.connect(_on_area_entered)
+	stats.no_health.connect(queue_free)
 
 func _physics_process(_delta: float) -> void:
 	var state = playback.get_current_node()
@@ -30,10 +35,15 @@ func _physics_process(_delta: float) -> void:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * _delta)
 			move_and_slide()
 			
+func _on_area_entered(area_2D: Area2D) -> void:
+	if area_2D is not Hitbox: return
+	take_hit.call_deferred(area_2D)
+
 func take_hit(other_hitbox: Hitbox) -> void:
-	velocity = other_hitbox.knockback_direction * 100 
+	stats.health -= other_hitbox.damage
+	velocity = other_hitbox.knockback_direction * other_hitbox.knoback_amount
 	playback.start("HitState")
-	print("changed to hit state")
+	print("Set the knockback to 200")
 	
 	
 func get_player() -> Player:

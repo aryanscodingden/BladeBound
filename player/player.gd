@@ -8,6 +8,7 @@ var input_vector = Vector2.ZERO
 var last_input_vector = Vector2.ZERO
 var attack_timer := 0.0
 var is_attacking = false
+@export var stats: Stats
 
 @onready var sword_hitbox: Hitbox = $SwordHitbox
 @onready var animation_tree: AnimationTree = $AnimationTree

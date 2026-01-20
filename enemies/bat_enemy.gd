@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @export var RangePlayer:= 104
+@export var stats: Stats
 const speed = 30
 const friction = 500 
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -10,10 +11,11 @@ const friction = 500
 @onready var area_2d: Area2D = $Area2D
 
 func _ready() -> void:
+	stats = stats.duplicate()
 	area_2d.area_entered.connect(take_hit.call_deferred)
+	if stats:
+		stats.no_health.connect(queue_free)
 	
-	
-
 func _physics_process(_delta: float) -> void:
 	var state = playback.get_current_node()
 	match state:
@@ -31,9 +33,11 @@ func _physics_process(_delta: float) -> void:
 			move_and_slide()
 			
 func take_hit(other_hitbox: Hitbox) -> void:
+	if stats:
+		stats.health -= other_hitbox.damage
 	velocity = other_hitbox.knockback_direction * 100 
 	playback.start("HitState")
-	print("changed to hit state")
+	print("Hit! Health remaining: ", stats.health if stats else "no stats")
 	
 	
 func get_player() -> Player:

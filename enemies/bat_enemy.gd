@@ -10,12 +10,9 @@ const friction = 500
 @onready var area_2d: Area2D = $Area2D
 
 func _ready() -> void:
-	area_2d.area_entered.connect(func(other_area_2d: Area2D):
-		velocity = other_area_2d.knockback_direction * 100
-		playback.start("HitState")
-		print("Changed to HitState eheheh")
-		queue_free()
-	)
+	area_2d.area_entered.connect(take_hit.call_deferred)
+	
+	
 
 func _physics_process(_delta: float) -> void:
 	var state = playback.get_current_node()
@@ -32,6 +29,13 @@ func _physics_process(_delta: float) -> void:
 		"HitState":
 			velocity = velocity.move_toward(Vector2.ZERO, friction * _delta)
 			move_and_slide()
+			
+func take_hit(other_hitbox: Hitbox) -> void:
+	velocity = other_hitbox.knockback_direction * 100 
+	playback.start("HitState")
+	print("changed to hit state")
+	
+	
 func get_player() -> Player:
 	return get_tree().get_first_node_in_group("player")
 	

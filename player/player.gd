@@ -11,8 +11,18 @@ var is_attacking = false
 @export var stats: Stats
 
 @onready var sword_hitbox: Hitbox = $SwordHitbox
+@onready var hurtbox: Hurtbox = $Hurtbox
+@onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
+func _ready() -> void:
+	hurtbox.hurt.connect(take_hit.call_deferred)
+	stats.no_health.connect(queue_free)
+	
+func take_hit(other_hitbox: Hitbox) -> void:
+	stats.health -= other_hitbox.damage
+	blink_animation_player.play("blink")
+
 func _physics_process(_delta: float) -> void:
 	var state = playback.get_current_node()
 	match state:

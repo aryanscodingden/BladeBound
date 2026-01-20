@@ -635,7 +635,6 @@ z_index = 1
 y_sort_enabled = true
 disable_mode = 2
 collision_layer = 2
-collision_mask = 5
 input_pickable = true
 motion_mode = 1
 script = ExtResource("2_rkbax")
@@ -683,6 +682,8 @@ polygon = PackedVector2Array(8, 5, 19, 5, 19, 6, 20, 6, 20, 7, 19, 7, 19, 8, 8, 
 disabled = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("5_qjkh3")
 metadata/_custom_type_script = "uid://jl1qnr0oy7y4"
 

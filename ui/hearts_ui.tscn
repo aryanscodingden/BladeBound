@@ -25,4 +25,5 @@ offset_top = 1.0
 offset_right = 30.0
 offset_bottom = 12.0
 texture = ExtResource("3_mxs3m")
+expand_mode = 1
 stretch_mode = 1

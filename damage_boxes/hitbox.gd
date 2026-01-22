@@ -8,4 +8,5 @@ class_name Hitbox extends Area2D
 var hit_targets: Array
 
 func clear_hit_targets() -> void:
+	print("Clearing hit targets. Previous count: ", hit_targets.size())
 	hit_targets.clear()

@@ -6,23 +6,33 @@ extends CharacterBody2D
 @export var stats: Stats
 const speed = 30
 const friction = 500
+const hit_effect = preload("res://effects/hit_effect.tscn")
 var attack_timer: float = 0.0
+var hit_state_timer: float = 0.0
+const hit_state_duration: float = 0.2
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
 @export var player: Player
-@onready var area_2d: Area2D = $Area2D
+@onready var hurtbox: Hurtbox = $Area2D
 
 func _ready() -> void:
 	stats = stats.duplicate()
-	area_2d.area_entered.connect(take_hit)
+	print("Bat ready! Hurtbox: ", hurtbox, " Stats: ", stats)
+	print("Hurtbox is Hurtbox class: ", hurtbox is Hurtbox)
+	print("Hurtbox monitoring: ", hurtbox.monitoring, " monitorable: ", hurtbox.monitorable)
+	print("Hurtbox collision layer: ", hurtbox.collision_layer, " mask: ", hurtbox.collision_mask)
+	hurtbox.hurt.connect(take_hit)
 	if stats:
 		stats.no_health.connect(queue_free)
 	
 func _physics_process(_delta: float) -> void:
 	if attack_timer > 0:
 		attack_timer -= _delta
+	
+	if hit_state_timer > 0:
+		hit_state_timer -= _delta
 		
 	var state = playback.get_current_node()
 	match state:
@@ -46,11 +56,17 @@ func _physics_process(_delta: float) -> void:
 		"HitState":
 			velocity = velocity.move_toward(Vector2.ZERO, friction * _delta)
 			move_and_slide()
+			if hit_state_timer <= 0:
+				playback.travel("IdleState")
 			
 func take_hit(other_hitbox: Hitbox) -> void:
+	var hit_effect_instance = hit_effect.instantiate()
+	get_tree().current_scene.add_child(hit_effect_instance)
+	hit_effect_instance.global_position = global_position
 	if stats:
 		stats.health -= other_hitbox.damage
 	velocity = other_hitbox.knockback_direction * other_hitbox.knockback_amount 
+	hit_state_timer = hit_state_duration
 	playback.start("HitState")
 	print("Hit! Health remaining: ", stats.health if stats else "no stats")
 

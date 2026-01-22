@@ -19,6 +19,11 @@ func _ready() -> void:
 	hurtbox.hurt.connect(take_hit.call_deferred)
 	stats.no_health.connect(queue_free)
 	
+func die() -> void:
+	hide()
+	remove_from_group("player")
+	process_mode = Node.PROCESS_MODE_DISABLED
+	
 func take_hit(other_hitbox: Hitbox) -> void:
 	stats.health -= other_hitbox.damage
 	blink_animation_player.play("blink")

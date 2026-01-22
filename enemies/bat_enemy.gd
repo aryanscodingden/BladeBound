@@ -12,7 +12,7 @@ const friction = 500
 
 func _ready() -> void:
 	stats = stats.duplicate()
-	area_2d.area_entered.connect(take_hit.call_deferred)
+	area_2d.area_entered.connect(take_hit)
 	if stats:
 		stats.no_health.connect(queue_free)
 	
@@ -35,7 +35,7 @@ func _physics_process(_delta: float) -> void:
 func take_hit(other_hitbox: Hitbox) -> void:
 	if stats:
 		stats.health -= other_hitbox.damage
-	velocity = other_hitbox.knockback_direction * 100 
+	velocity = other_hitbox.knockback_direction * other_hitbox.knockback_amount 
 	playback.start("HitState")
 	print("Hit! Health remaining: ", stats.health if stats else "no stats")
 	

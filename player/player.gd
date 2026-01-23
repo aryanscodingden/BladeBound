@@ -18,8 +18,6 @@ var is_attacking = false
 func _ready() -> void:
 	hurtbox.hurt.connect(take_hit.call_deferred)
 	stats.no_health.connect(queue_free)
-	print("Player ready! SwordHitbox damage: ", sword_hitbox.damage, " knockback: ", sword_hitbox.knockback_amount)
-	print("SwordHitbox layer: ", sword_hitbox.collision_layer, " mask: ", sword_hitbox.collision_mask)
 	
 func die() -> void:
 	hide()
@@ -51,9 +49,7 @@ func _physics_process(_delta: float) -> void:
 			if Input.is_action_just_pressed("attack"):
 				is_attacking = true	
 				attack_timer = attack_duration
-				# Clear hit targets to allow hitting enemies again
 				sword_hitbox.clear_hit_targets()
-				# Update blend position before traveling to AttackState
 				var direction_vector: = Vector2(last_input_vector.x, -last_input_vector.y)
 				update_blend_positions(direction_vector)
 				playback.travel("AttackState")

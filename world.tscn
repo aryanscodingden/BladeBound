@@ -119,130 +119,130 @@ position = Vector2(352, 48)
 [node name="Tree3" parent="." instance=ExtResource("4_aqk2v")]
 position = Vector2(24, 216)
 
-[node name="Grass" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(40, 72)
 
-[node name="Grass4" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass4" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(56, 72)
 
-[node name="Grass5" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass5" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(40, 88)
 
-[node name="Grass6" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass6" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(56, 88)
 
-[node name="Grass7" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass7" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(392, 168)
 
-[node name="Grass8" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass8" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(376, 168)
 
-[node name="Grass26" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass26" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 264)
 
-[node name="Grass21" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass21" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(344, 136)
 
-[node name="Grass22" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass22" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 120)
 
-[node name="Grass23" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass23" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 136)
 
-[node name="Grass25" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass25" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(344, 120)
 
-[node name="Grass10" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass10" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(408, 200)
 
-[node name="Grass11" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass11" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(424, 200)
 
-[node name="Grass12" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass12" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 280)
 
-[node name="Grass24" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass24" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(408, 280)
 
-[node name="Grass38" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass38" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(408, 296)
 
-[node name="Grass9" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass9" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(400, 264)
 
-[node name="Grass13" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass13" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(384, 264)
 
-[node name="Grass29" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass29" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 328)
 
-[node name="Grass30" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass30" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 344)
 
-[node name="Grass31" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass31" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 344)
 
-[node name="Grass32" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass32" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(312, 360)
 
-[node name="Grass36" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass36" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(72, 56)
 
-[node name="Grass37" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass37" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(72, 40)
 
-[node name="Grass33" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass33" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(296, 360)
 
-[node name="Grass34" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass34" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(280, 360)
 
-[node name="Grass35" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass35" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(264, 360)
 
-[node name="Grass14" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass14" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(368, 264)
 
-[node name="Grass40" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass40" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(440, 312)
 
-[node name="Grass42" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass42" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(424, 312)
 
-[node name="Grass41" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass41" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(456, 328)
 
-[node name="Grass39" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass39" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(344, 248)
 
-[node name="Grass27" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass27" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 296)
 
-[node name="Grass28" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass28" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 312)
 
-[node name="Grass2" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass2" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(408, 168)
 
-[node name="Grass3" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass3" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(424, 152)
 
-[node name="Grass15" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass15" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(424, 136)
 
-[node name="Grass16" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass16" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(424, 120)
 
-[node name="Grass17" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass17" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(448, 104)
 
-[node name="Grass18" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass18" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(464, 104)
 
-[node name="Grass19" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass19" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(480, 104)
 
-[node name="Grass20" parent="." instance=ExtResource("7_pkg7o")]
+[node name="Grass20" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(496, 104)
 
 [node name="BatEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_gbfbk")]

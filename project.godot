@@ -15,6 +15,10 @@ run/main_scene="uid://dyhi1cc0sso70"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://GameManager/game_manager.gd"
+
 [display]
 
 window/size/viewport_width=320
@@ -33,6 +37,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 Sword=""
 player=""
 navigation_polygon_source_geometry_group=""
+cuttable_grass=""
 
 [input]
 

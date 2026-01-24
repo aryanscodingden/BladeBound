@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0rv1ou2fgcbc"]
+
+[ext_resource type="Script" uid="uid://b188oy8w4av4r" path="res://pauseplay.gd" id="1_omtls"]
+[ext_resource type="AudioStream" uid="uid://bgo585dtbxsau" path="res://music_and_sounds/pause.wav" id="2_s3ect"]
+[ext_resource type="AudioStream" uid="uid://c86yiai5yskko" path="res://music_and_sounds/unpause.wav" id="3_l8ynw"]
+
+[node name="pauser" type="Node"]
+script = ExtResource("1_omtls")
+metadata/_custom_type_script = "uid://b188oy8w4av4r"
+
+[node name="PauseAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s3ect")
+bus = &"Sounds"
+
+[node name="UnpauseAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_l8ynw")
+bus = &"Sounds"

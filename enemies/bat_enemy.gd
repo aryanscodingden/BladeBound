@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var RangePlayer:= 104
-@export var attack_range: float = 5.0
-@export var attack_cooldown: float = 1.0
+@export var attack_range: float = 20.0
+@export var attack_cooldown: float = 2.0
 @export var attack_damage: int = 1
 @export var stats: Stats
 
@@ -20,6 +20,7 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 @onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
 @export var player: Player
 @onready var hurtbox: Hurtbox = $Area2D
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var center: Marker2D = $Center
 
 func _ready() -> void:
@@ -37,13 +38,17 @@ func _physics_process(_delta: float) -> void:
 		
 	var state = playback.get_current_node()
 	match state:
-		"IdleState": pass
+		"IdleState": 
+			if can_see_player():
+				playback.travel("ChaseState")
 		"ChaseState": 
 			player = get_player()
 			if player is Player:
+				navigation_agent_2d.target_position = player.global_position
+				var next_point = navigation_agent_2d.get_next_path_position()
 				var distance_to_player = global_position.distance_to(player.global_position)
 				if distance_to_player > attack_range:
-					velocity = global_position.direction_to(player.global_position) * speed
+					velocity = global_position.direction_to(next_point) * speed
 					if velocity.x != 0:
 						sprite_2d.scale.x = sign(velocity.x)
 				else:

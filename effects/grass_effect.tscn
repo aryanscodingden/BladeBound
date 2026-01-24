@@ -45,7 +45,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="GrassEffect" type="AnimatedSprite2D"]
+[node name="GrassEffect" type="AnimatedSprite2D" groups=["navigation_polygon_source_geometry_group"]]
 sprite_frames = SubResource("SpriteFrames_gduow")
 autoplay = "default"
 frame = 4

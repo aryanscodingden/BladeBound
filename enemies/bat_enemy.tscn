@@ -134,12 +134,8 @@ animation = &"fly"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e7gs6"]
-advance_mode = 2
-advance_expression = "can_see_player()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5gx0a"]
-advance_mode = 2
-advance_expression = "not can_see_player()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_erta8"]
 advance_mode = 2
@@ -228,3 +224,7 @@ debug_color = Color(0.91039413, 0.22196221, 0.5055483, 0.41960785)
 
 [node name="Center" type="Marker2D" parent="."]
 position = Vector2(0, -7)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 20.0
+debug_enabled = true

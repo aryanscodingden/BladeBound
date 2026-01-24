@@ -12,4 +12,3 @@ func _on_hurt(other_hitbox: Hitbox) -> void:
 	get_tree().current_scene.add_child(grass_effect_instance)
 	grass_effect_instance.global_position = global_position
 	queue_free()
-	

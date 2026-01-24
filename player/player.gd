@@ -14,6 +14,7 @@ var is_attacking = false
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
 func _ready() -> void:
 	hurtbox.hurt.connect(take_hit.call_deferred)

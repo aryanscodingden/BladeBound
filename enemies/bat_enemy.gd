@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 const speed = 30
 const friction = 200
-const hit_effect = preload("res://effects/hit_effect.tscn")
+const hit_effect = preload("uid://c56ny150wvyyv")
 const death_effect = preload("uid://d3f47raaukmes")
 var attack_timer: float = 0.0
 var hit_state_timer: float = 0.0

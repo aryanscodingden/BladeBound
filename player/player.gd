@@ -9,7 +9,7 @@ var last_input_vector = Vector2.ZERO
 var attack_timer := 0.0
 var is_attacking = false
 @export var stats: Stats
-
+@onready var hurt_audio_stream_player: AudioStreamPlayer = $HurtAudioStreamPlayer
 @onready var sword_hitbox: Hitbox = $SwordHitbox
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
@@ -23,8 +23,9 @@ func die() -> void:
 	hide()
 	remove_from_group("player")
 	process_mode = Node.PROCESS_MODE_DISABLED
-	
+
 func take_hit(other_hitbox: Hitbox) -> void:
+	hurt_audio_stream_player.play()
 	stats.health -= other_hitbox.damage
 	blink_animation_player.play("blink")
 

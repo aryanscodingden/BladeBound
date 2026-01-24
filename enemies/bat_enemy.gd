@@ -20,8 +20,10 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 @onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
 @export var player: Player
 @onready var hurtbox: Hurtbox = $Area2D
-@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var marker_2d: Marker2D = $Marker2D
+@onready var navigation_agent_2d: NavigationAgent2D = $Marker2D/NavigationAgent2D
 @onready var center: Marker2D = $Center
+
 
 func _ready() -> void:
 	stats = stats.duplicate()
@@ -45,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 			player = get_player()
 			if player is Player:
 				navigation_agent_2d.target_position = player.global_position
-				var next_point = navigation_agent_2d.get_next_path_position()
+				var next_point = navigation_agent_2d.get_next_path_position() - marker_2d.position
 				var distance_to_player = global_position.distance_to(player.global_position)
 				if distance_to_player > attack_range:
 					velocity = global_position.direction_to(next_point) * speed

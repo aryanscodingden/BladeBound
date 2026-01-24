@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dyhi1cc0sso70"]
+[gd_scene load_steps=14 format=4 uid="uid://dyhi1cc0sso70"]
 
 [ext_resource type="PackedScene" uid="uid://b6jximq1jll0r" path="res://player/player.tscn" id="1_f3sb7"]
 [ext_resource type="TileSet" uid="uid://dunsj1g8nwopm" path="res://world/dirt_tileset.tres" id="2_dwbse"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d0umi2xqi0bt4" path="res://world/bush.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://bjgeiy3x3xt2n" path="res://world/grass.tscn" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://colrmviavkp8y" path="res://enemies/bat_enemy.tscn" id="8_gbfbk"]
+[ext_resource type="Script" uid="uid://bp3y8f7tn6jmd" path="res://environment/Environmentgrass.gd" id="8_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://dkc7fbqqq4h7k" path="res://ui/hearts_ui.tscn" id="9_ioo17"]
 [ext_resource type="AudioStream" uid="uid://s80fxpj6aaod" path="res://music_and_sounds/Main theme song.mp3" id="10_wse8f"]
 [ext_resource type="PackedScene" uid="uid://c0rv1ou2fgcbc" path="res://ui/pauser.tscn" id="11_ic0uy"]
@@ -121,129 +122,171 @@ position = Vector2(24, 216)
 
 [node name="Grass" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(40, 72)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass4" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(56, 72)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass5" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(40, 88)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass6" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(56, 88)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass7" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(392, 168)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass8" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(376, 168)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass26" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 264)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass21" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(344, 136)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass22" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 120)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass23" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 136)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass25" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(344, 120)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass10" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(408, 200)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass11" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(424, 200)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass12" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 280)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass24" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(408, 280)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass38" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(408, 296)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass9" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(400, 264)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass13" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(384, 264)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass29" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 328)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass30" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 344)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass31" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 344)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass32" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(312, 360)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass36" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(72, 56)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass37" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(72, 40)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass33" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(296, 360)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass34" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(280, 360)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass35" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(264, 360)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass14" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(368, 264)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass40" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(440, 312)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass42" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(424, 312)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass41" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(456, 328)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass39" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(344, 248)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass27" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 296)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass28" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(328, 312)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass2" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(408, 168)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass3" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(424, 152)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass15" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(424, 136)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass16" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(424, 120)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass17" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(448, 104)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass18" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(464, 104)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass19" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(480, 104)
+script = ExtResource("8_k3n1d")
 
 [node name="Grass20" parent="." groups=["cuttable_grass"] instance=ExtResource("7_pkg7o")]
 position = Vector2(496, 104)
+script = ExtResource("8_k3n1d")
 
 [node name="BatEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_gbfbk")]
 position = Vector2(32, 168)

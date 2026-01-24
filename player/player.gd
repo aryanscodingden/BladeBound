@@ -19,6 +19,8 @@ var is_attacking = false
 func _ready() -> void:
 	hurtbox.hurt.connect(take_hit.call_deferred)
 	stats.no_health.connect(queue_free)
+	if stats: 
+		stats.no_health.connect(die)
 	
 func die() -> void:
 	hide()
@@ -72,7 +74,13 @@ func _physics_process(_delta: float) -> void:
 			velocity = last_input_vector.normalized() * ROLL_SPEED
 			move_and_slide()
 			pass
-
+func _on_sword_hit_something(area: Area2D):
+	print("the sword touched something")
+	
+	var parent = area.get_parent()
+	if parent and parent.is_in_group("cuttable_grass") and parent.has_method("cut_grass"):
+		print("oh its grass, cutting")
+		parent.cut_grass()
 		
 func update_blend_positions(direction_vector: Vector2) -> void:
 		animation_tree.set("parameters/StateMachine/MoveState/RunState/blend_position", direction_vector)

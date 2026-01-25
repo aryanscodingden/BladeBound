@@ -9,6 +9,7 @@ const speed = 30
 const friction = 200
 const hit_effect = preload("uid://c56ny150wvyyv")
 const death_effect = preload("uid://d3f47raaukmes")
+const COIN_SCENE = preload("uid://c6yxctc7uh8ne")
 var attack_timer: float = 0.0
 var hit_state_timer: float = 0.0
 const hit_state_duration: float = 0.4
@@ -70,11 +71,16 @@ func _physics_process(_delta: float) -> void:
 				collision_mask = 7
 				playback.travel("IdleState")
 func die() -> void:
+	var spawn_pos = global_position
+	
 	var death_effect_instance = death_effect.instantiate()
 	get_tree().current_scene.add_child(death_effect_instance)
-	death_effect_instance.global_position = global_position
+	death_effect_instance.global_position = spawn_pos
+	
+	spawn_coins(spawn_pos)
+	GameManager.kills += 1
+	
 	queue_free()
-	pass
 func take_hit(other_hitbox: Hitbox) -> void:
 	var hit_effect_instance = hit_effect.instantiate()
 	get_tree().current_scene.add_child(hit_effect_instance)
@@ -114,6 +120,17 @@ func can_see_player() -> bool:
 	ray_cast_2d.force_raycast_update()
 	var has_los_to_player: = not ray_cast_2d.is_colliding()
 	return has_los_to_player
+
+func spawn_coins(spawn_pos: Vector2) -> void:
+	var coin_amount = randi_range(2, 3)
+	var world = get_tree().current_scene
+	if world:
+		for i in coin_amount:
+			var coin = COIN_SCENE.instantiate()
+			if coin:
+				world.add_child(coin)
+				var offset = Vector2(randf_range(-20, 20), randf_range(-20, 20))
+				coin.global_position = spawn_pos + offset
 	
 	
 	

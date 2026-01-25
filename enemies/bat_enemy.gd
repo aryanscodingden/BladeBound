@@ -81,9 +81,14 @@ func take_hit(other_hitbox: Hitbox) -> void:
 	hit_effect_instance.global_position = center.global_position
 	if stats:
 		stats.health -= other_hitbox.damage
+	
+	# Calculate knockback direction from hitbox position to enemy
+	var knockback_dir = (global_position - other_hitbox.global_position).normalized()
+	
+	# Apply knockback
 	collision_layer = 0
 	collision_mask = 3
-	knockback_velocity = other_hitbox.knockback_direction * other_hitbox.knockback_amount
+	knockback_velocity = knockback_dir * other_hitbox.knockback_amount
 	velocity = knockback_velocity
 	hit_state_timer = hit_state_duration
 	playback.start("HitState")

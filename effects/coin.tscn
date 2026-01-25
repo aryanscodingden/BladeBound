@@ -79,7 +79,8 @@ animations = [{
 script = ExtResource("1_nc0eg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 2)
+position = Vector2(8.955355, 9.499998)
+scale = Vector2(0.04464284, 0.0504587)
 sprite_frames = SubResource("SpriteFrames_tl6gx")
 autoplay = "default"
 frame = 8

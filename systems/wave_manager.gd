@@ -30,8 +30,21 @@ func start_wave():
 	wave_active = true
 	time_until_next_wave = 30.0
 	
-	print("=" * 40)
 	print("Wave %d starting" % current_wave)
-	print("=" * 40)
-	
 	wave_started.emit(current_wave)
+	
+	var enemy_count = enemies_per_wave + (current_wave - 1)
+	print("%d enmies will spawn", % enemy_count)
+	print("Enemies will spawn here when we do add the ode")
+	await get_tree().create_timer(10.0).timeout
+	all_enemies_defeated()
+	
+func all_enemies_defeated():
+	if not wave_active:
+		return
+
+	wave_active = false
+	print("Wave %d comeplete!" % current_wave)
+	print("Next wave in 30 seconds...")
+	
+	enemies_defeated.emit()

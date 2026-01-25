@@ -1,15 +1,13 @@
 extends Area2D
 
 @export var coin_value: int = 1
+@export var collection_range: float = 20.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var is_collected: bool = false
 
 func _ready():
 	add_to_group("collectible")
-	
-	body_entered.connect(_on_body_collect)
-	
 	if animated_sprite:
 		animated_sprite.play("default")
 	spawn_animation()
@@ -22,22 +20,27 @@ func spawn_animation():
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.3)
 
-func _on_body_collect(body: Node2D):
+func _process(_delta):
 	if is_collected:
 		return 
-	if body.is_in_group("player"):
-		is_collected = true
+	var players = get_tree().get_nodes_in_group("player")
+	if players.is_empty():
+		return 
+	var player = players[0]
+	var distance = global_position.distance_to(player.global_position)
+	
+	if distance < collection_range:
+		is_collected = true 
 		collect()
 		
 func collect():
-	print("Coin collected")
+	print("coins collected")
 	GameManager.add_coins(coin_value)
-	var tween = create_tween()
-	tween.set_parallel(true)
 	
-	tween.tweeen_property(self, "global_position:y", global_position.y - 30, 0.6)
-	tween.tween_property(self, "scale", Vector2(1.5, 1.5), 0.4)
-	tween.tween_property(self, "modulate:a", 0.0, 0.4)
+	var collect_tween = create_tween()
+	collect_tween.set_parallel(true)
+	collect_tween.tween_property(self, "global_position:y", global_position.y - 30, 0.3)
+	collect_tween.tween_property(self, "modulate:a", 0.0, 0.3)
 	
-	await tween.finished
+	await collect_tween.finished
 	queue_free()

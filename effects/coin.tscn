@@ -76,6 +76,7 @@ animations = [{
 }]
 
 [node name="Coin" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_nc0eg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

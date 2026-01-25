@@ -17,6 +17,7 @@ var is_attacking = false
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
 func _ready() -> void:
+	add_to_group("player")
 	hurtbox.hurt.connect(take_hit.call_deferred)
 	stats.no_health.connect(queue_free)
 	if stats: 

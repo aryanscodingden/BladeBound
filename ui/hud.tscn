@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://lx6172aku7o7"]
+
+[ext_resource type="Script" uid="uid://cwasgsi5jecp2" path="res://ui/hud.gd" id="1_546lt"]
+[ext_resource type="Texture2D" uid="uid://4dhs5jyoygyc" path="res://effects/plain_coin.png" id="1_rbyyf"]
+[ext_resource type="FontFile" uid="uid://h5caceyf7q1e" path="res://font/MinecraftTen-VGORe.ttf" id="3_7ihmi"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_546lt")
+
+[node name="CoinDisplay" type="HBoxContainer" parent="."]
+offset_left = 20.0
+offset_top = 50.0
+offset_right = 119.0
+offset_bottom = 124.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1.0
+offset_top = 19.0
+offset_right = 244.0
+offset_bottom = 265.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_rbyyf")
+
+[node name="CoinAmountLabel" type="Label" parent="."]
+offset_left = 45.0
+offset_top = 31.0
+offset_right = 85.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("3_7ihmi")
+theme_override_font_sizes/font_size = 10
+text = "0"

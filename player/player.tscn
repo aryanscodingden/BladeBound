@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://7pekyjlpp3dl" path="res://music_and_sounds/swipe.wav" id="4_g6k8r"]
 [ext_resource type="AudioStream" uid="uid://bo1manssoirp2" path="res://music_and_sounds/evade.wav" id="5_boad6"]
 [ext_resource type="Script" uid="uid://jl1qnr0oy7y4" path="res://damage_boxes/hurtbox.gd" id="5_qjkh3"]
-[ext_resource type="AudioStream" uid="uid://dvbtnrn8l6yiu" path="res://music_and_sounds/young-man-being-hurt-95628.mp3" id="8_rgyib"]
+[ext_resource type="AudioStream" uid="uid://bbfhf4463jlyt" path="res://music_and_sounds/hurtsound.wav" id="8_rgyib"]
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.001

@@ -9,11 +9,10 @@ func cut_grass():
 	if is_cut:
 		return
 	is_cut = true
-	print(" Grass was cut e" % global_position)
 	
 	var tween = create_tween()
 	tween.tween_property(sprite, "modulate:a", 0.0, 0.3)
-	#random coins e
+	#random coins es
 	var coin_amount = randi_range(1, 3)  
 	GameManager.add_coins(coin_amount)
 	GameManager.grass_cut += 1

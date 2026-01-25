@@ -6,6 +6,7 @@ var time_until_next_wave: float = 30.0
 var enemies_per_wave: int = 3
 var wave_active: bool = false
 var active_enemies: Array = []
+var last_emitted_second: int = -1
 
 signal wave_started(wave_number)
 signal wave_countdown(seconds_left)
@@ -13,6 +14,7 @@ signal enemies_defeated()
 
 func _ready():
 	print("Wave Manager initialized!")
+	
 func _process(delta: float) -> void:
 	if wave_active:
 		check_enemies()
@@ -20,9 +22,11 @@ func _process(delta: float) -> void:
 	
 	time_until_next_wave -= delta
 	
-	var seconds = int(time_until_next_wave)
-	if seconds != int(time_until_next_wave + delta):
-		wave_countdown.emit(seconds)
+	var current_second = int(time_until_next_wave)
+	if current_second != last_emitted_second:
+		last_emitted_second = current_second
+		if current_second >= 0:
+			wave_countdown.emit(current_second)
 		
 	if time_until_next_wave <= 0:
 		start_wave()

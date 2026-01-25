@@ -18,14 +18,14 @@ offset_left = 1.0
 offset_top = 19.0
 offset_right = 244.0
 offset_bottom = 265.0
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_rbyyf")
 
 [node name="CoinAmountLabel" type="Label" parent="."]
-offset_left = 45.0
-offset_top = 31.0
-offset_right = 85.0
-offset_bottom = 54.0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = 63.0
+offset_bottom = 36.0
 theme_override_fonts/font = ExtResource("3_7ihmi")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 6
 text = "0"

@@ -3,10 +3,9 @@
 [ext_resource type="Script" uid="uid://cwasgsi5jecp2" path="res://ui/hud.gd" id="1_546lt"]
 [ext_resource type="Texture2D" uid="uid://4dhs5jyoygyc" path="res://effects/plain_coin.png" id="1_rbyyf"]
 [ext_resource type="FontFile" uid="uid://h5caceyf7q1e" path="res://font/MinecraftTen-VGORe.ttf" id="3_7ihmi"]
+[ext_resource type="FontFile" uid="uid://o23wa6q0ujn2" path="res://font/PokemonGb-RAeo.ttf" id="4_7ihmi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_546lt"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_546lt"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_546lt")
@@ -41,15 +40,15 @@ offset_right = 218.0
 offset_bottom = 12.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_546lt")
 
-[node name="WaveTimerLabel" type="Label" parent="WaveTimePanel"]
-layout_mode = 0
-offset_left = 4.0
-offset_right = 54.0
-offset_bottom = 7.0
+[node name="WaveTimerLabel" type="Label" parent="."]
+offset_left = 120.0
+offset_top = 8.0
+offset_right = 224.0
+offset_bottom = 21.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_7ihmi")
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("4_7ihmi")
 theme_override_font_sizes/font_size = 6
 text = "Next Wave: 30s"
-label_settings = SubResource("LabelSettings_546lt")

@@ -13,3 +13,6 @@ var grass_cut: int = 0
 
 func _ready():
 	print("GameManager ready!")
+
+func add_coins(amount: int):
+	coins += amount

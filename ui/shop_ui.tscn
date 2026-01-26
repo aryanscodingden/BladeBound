@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://byyjrucrilip6"]
+
+[ext_resource type="Script" uid="uid://dgn6h8bjlp60l" path="res://ui/shop_ui.gd" id="1_ddy65"]
+[ext_resource type="Texture2D" uid="uid://xn4svl1rnyvh" path="res://ui/shop.png" id="1_h5uvh"]
+
+[node name="ShopUI" type="CanvasLayer"]
+script = ExtResource("1_ddy65")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -808.0
+offset_top = -533.0
+offset_right = 1083.0
+offset_bottom = 648.0
+texture = ExtResource("1_h5uvh")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="MainPanel" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainContainer" type="VBoxContainer" parent="MainPanel"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MainPanel/MainContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MainPanel/MainContainer"]
+layout_mode = 2
+
+[node name="TopInfo" type="HBoxContainer" parent="MainPanel/MainContainer/HSeparator"]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 16.0
+
+[node name="CoinsLabel" type="Label" parent="MainPanel/MainContainer/HSeparator"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Control" type="Control" parent="MainPanel/MainContainer/HSeparator/CoinsLabel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StatsLabel" type="Label" parent="MainPanel/MainContainer/HSeparator/CoinsLabel/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="UpgradeScroll" type="ScrollContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+
+[node name="UpgradeList" type="VBoxContainer" parent="MainPanel/MainContainer/UpgradeScroll"]
+layout_mode = 2
+
+[node name="ButtonRow" type="HBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MainPanel/MainContainer/ButtonRow"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="MainPanel/MainContainer/ButtonRow/Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Control" type="Control" parent="MainPanel/MainContainer/ButtonRow/Control/CloseButton"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

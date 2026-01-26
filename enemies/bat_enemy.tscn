@@ -231,4 +231,3 @@ position = Vector2(0, -13)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Marker2D"]
 path_desired_distance = 4.0
 target_desired_distance = 4.0
-debug_enabled = true

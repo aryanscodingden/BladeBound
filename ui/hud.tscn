@@ -52,3 +52,16 @@ theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("4_7ihmi")
 theme_override_font_sizes/font_size = 6
 text = "Next Wave: 30s"
+
+[node name="WaveTimerLabel2" type="Label" parent="."]
+offset_left = 216.0
+offset_top = 8.0
+offset_right = 306.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("4_7ihmi")
+theme_override_font_sizes/font_size = 6
+text = "Expires in: 30s"

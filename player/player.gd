@@ -58,14 +58,20 @@ func die() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 
 func take_hit(other_hitbox: Hitbox) -> void:
-	hurt_audio_stream_player.play()
+	var incoming_damge = other_hitbox.damage
 	var reduction = UpgradeManager.get_damage_reduction()
-	var actual_damage = max(1, other_hitbox.damage - reduction)
+	var actual_damage = incoming_damge - reduction
+	
+	if actual_damage <= 0:
+		print("Sheild blocked one damage!")
+		hurt_audio_stream_player.play()
+		blink_animation_player.play("blink")
+		return 
+		
+	hurt_audio_stream_player.play()
 	stats.health -= actual_damage
 	current_health = stats.health
-	print("Player took %d damage (reduced from %d). Health: %d/%d" % [actual_damage, other_hitbox.damage, current_health, max_health])
-	blink_animation_player.play("blink")
-
+	
 func _physics_process(_delta: float) -> void:
 	var state = playback.get_current_node()
 	match state:

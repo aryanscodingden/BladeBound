@@ -11,11 +11,18 @@ extends CanvasLayer
 @onready var speed_blade: Label = $ShopLabel/SpeedBlade
 @onready var quick_slash: Label = $ShopLabel/QuickSlash
 @onready var sheild: Label = $ShopLabel/Sheild
+
 @onready var coin: TextureRect = $Coin
 @onready var coin_2: TextureRect = $Coin2
 @onready var coin_3: TextureRect = $Coin3
 @onready var coin_4: TextureRect = $Coin4
 @onready var coin_5: TextureRect = $Coin5
+
+@onready var price_1: Label = $BuyButton1/ExtraHeart2
+@onready var price_2: Label = $BuyButton1/ExtraHeart3
+@onready var price_3: Label = $BuyButton1/ExtraHeart4
+@onready var price_4: Label = $BuyButton1/ExtraHeart5
+@onready var price_5: Label = $BuyButton1/ExtraHeart6
 
 
 var is_open: bool = false
@@ -66,11 +73,11 @@ func buy_upgrade(upgrade_id: String):
 		print("Failed to buy: " + upgrade_id)
 
 func update_prices():
- 	coin.text = str(UpgradeManager.upgrades["extra_hearts"]["cost"])
-	coin_2.text = str(UpgradeManager.upgrades["sharp_blade"]["cost"])
-	coin_3.text = str(UpgradeManager.upgrades["speed_boost"]["cost"])
-	coin_4.text = str(UpgradeManager.upgrades["quick_slash"]["cost"])
-	coin_5.text = str(UpgradeManager.upgrades["shield"]["cost"])
+	price_1.text = str(UpgradeManager.upgrades["extra_hearts"]["cost"])
+	price_2.text = str(UpgradeManager.upgrades["sharp_blade"]["cost"])
+	price_3.text = str(UpgradeManager.upgrades["speed_boost"]["cost"])
+	price_4.text = str(UpgradeManager.upgrades["quick_slash"]["cost"])
+	price_5.text = str(UpgradeManager.upgrades["shield"]["cost"])
 
 func update_button_states():
 	update_single_button(buy_button_1, "extra_hearts")

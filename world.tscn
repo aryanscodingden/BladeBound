@@ -317,3 +317,4 @@ parameters/looping = true
 [node name="HUD" parent="." instance=ExtResource("13_2o6r5")]
 
 [node name="ShopUI" parent="." instance=ExtResource("14_70uel")]
+process_mode = 3

@@ -2,7 +2,7 @@ extends Node
 
 signal coins_changed(new_amount)
 
-var coins: int = 0:
+var coins: int = 100:
 	set(value):
 		coins = value
 		coins_changed.emit(coins)

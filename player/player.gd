@@ -8,6 +8,10 @@ var input_vector = Vector2.ZERO
 var last_input_vector = Vector2.ZERO
 var attack_timer := 0.0
 var is_attacking = false
+
+var max_health: int = 3
+var current_health: int = 3
+
 @export var stats: Stats
 @onready var hurt_audio_stream_player: AudioStreamPlayer = $HurtAudioStreamPlayer
 @onready var sword_hitbox: Hitbox = $SwordHitbox
@@ -16,13 +20,38 @@ var is_attacking = false
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
+
 func _ready() -> void:
 	add_to_group("player")
+	update_max_health()
+	current_health = max_health
+	if stats:
+		stats.max_health = max_health
+		stats.health = current_health
+	UpgradeManager.stats_changed.connect(_on_stats_changed)
 	hurtbox.hurt.connect(take_hit.call_deferred)
-	stats.no_health.connect(queue_free)
-	if stats: 
+	if stats:
 		stats.no_health.connect(die)
+func update_max_health():
+	var bonus_hp = UpgradeManager.get_bonus_health()
+	max_health = 3 + bonus_hp 
+	print("Max health updated to: %d (Base: 3 + Bonus: %d)" % [max_health, bonus_hp])
+
+func _on_stats_changed():
+	var old_max = max_health
+	update_max_health()
 	
+	if max_health > old_max:
+		var health_gained = max_health - old_max
+		current_health += health_gained
+		current_health = min(current_health, max_health)
+		
+		if stats:
+			stats.max_health = max_health
+			stats.health = current_health
+		
+		print("Gained %d max HP! Current: %d/%d" % [health_gained, current_health, max_health])
+
 func die() -> void:
 	hide()
 	remove_from_group("player")
@@ -30,7 +59,11 @@ func die() -> void:
 
 func take_hit(other_hitbox: Hitbox) -> void:
 	hurt_audio_stream_player.play()
-	stats.health -= other_hitbox.damage
+	var reduction = UpgradeManager.get_damage_reduction()
+	var actual_damage = max(1, other_hitbox.damage - reduction)
+	stats.health -= actual_damage
+	current_health = stats.health
+	print("Player took %d damage (reduced from %d). Health: %d/%d" % [actual_damage, other_hitbox.damage, current_health, max_health])
 	blink_animation_player.play("blink")
 
 func _physics_process(_delta: float) -> void:
@@ -53,7 +86,8 @@ func _physics_process(_delta: float) -> void:
 				playback.travel("MoveState") 
 			if Input.is_action_just_pressed("attack"):
 				is_attacking = true	
-				attack_timer = attack_duration
+				var attack_speed_mult = UpgradeManager.get_attack_speed_multiplier()
+				attack_timer = attack_duration / attack_speed_mult
 				sword_hitbox.clear_hit_targets()
 				var direction_vector: = Vector2(last_input_vector.x, -last_input_vector.y)
 				update_blend_positions(direction_vector)
@@ -63,7 +97,8 @@ func _physics_process(_delta: float) -> void:
 				playback.travel("RollState")
 				return
 			
-			velocity = input_vector * speed
+			var speed_mult = UpgradeManager.get_speed_multiplier()
+			velocity = input_vector * speed * speed_mult
 			move_and_slide()
 		"AttackState":
 			velocity = Vector2.ZERO

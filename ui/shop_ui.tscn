@@ -1,73 +1,260 @@
-[gd_scene load_steps=3 format=3 uid="uid://byyjrucrilip6"]
+[gd_scene load_steps=5 format=3 uid="uid://byyjrucrilip6"]
 
 [ext_resource type="Script" uid="uid://dgn6h8bjlp60l" path="res://ui/shop_ui.gd" id="1_ddy65"]
-[ext_resource type="Texture2D" uid="uid://xn4svl1rnyvh" path="res://ui/shop.png" id="1_h5uvh"]
+[ext_resource type="FontFile" uid="uid://co4w2spej4gmy" path="res://font/Spark Water.otf" id="2_ddy65"]
+[ext_resource type="FontFile" uid="uid://h5caceyf7q1e" path="res://font/MinecraftTen-VGORe.ttf" id="2_pe5jp"]
+[ext_resource type="Texture2D" uid="uid://4dhs5jyoygyc" path="res://effects/plain_coin.png" id="3_pe5jp"]
 
 [node name="ShopUI" type="CanvasLayer"]
 script = ExtResource("1_ddy65")
 
-[node name="Background" type="TextureRect" parent="."]
-offset_left = -808.0
-offset_top = -533.0
-offset_right = 1083.0
-offset_bottom = 648.0
-texture = ExtResource("1_h5uvh")
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 117.0
+offset_top = 52.0
+offset_right = 197.0
+offset_bottom = 150.0
+
+[node name="TextEdit" type="TextEdit" parent="."]
+visible = false
+anchors_preset = -1
+anchor_bottom = 0.022000002
+offset_left = 140.0
+offset_top = 41.0
+offset_right = 172.0
+offset_bottom = 45.04
+text = "SHOP"
+placeholder_text = "SHOP"
+
+[node name="ShopLabel" type="Label" parent="."]
+offset_left = 142.0
+offset_top = 51.0
+offset_right = 175.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ddy65")
+text = "SHOP"
+
+[node name="ExtraHeart" type="Label" parent="ShopLabel"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 26.0
+offset_right = 14.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ddy65")
+theme_override_font_sizes/font_size = 7
+text = "Extra heart"
+
+[node name="SharpBlade" type="Label" parent="ShopLabel"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 39.0
+offset_right = 16.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ddy65")
+theme_override_font_sizes/font_size = 7
+text = "Sharp Blade"
+
+[node name="SpeedBlade" type="Label" parent="ShopLabel"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 54.0
+offset_right = 16.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ddy65")
+theme_override_font_sizes/font_size = 7
+text = "Speed Boost"
+
+[node name="QuickSlash" type="Label" parent="ShopLabel"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 69.0
+offset_right = 16.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ddy65")
+theme_override_font_sizes/font_size = 7
+text = "Quick Slash"
+
+[node name="Sheild" type="Label" parent="ShopLabel"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 82.0
+offset_right = 16.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ddy65")
+theme_override_font_sizes/font_size = 9
+text = "Sheild"
+
+[node name="BuyButton1" type="Button" parent="."]
+offset_left = 171.0
+offset_top = 76.0
+offset_right = 206.0
+offset_bottom = 92.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0.5086216, 0.50980735, 1)
+theme_override_colors/icon_focus_color = Color(0.4541939, 0.4552468, 0.058870576, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.82701427, 0.40751913, 1)
+theme_override_fonts/font = ExtResource("2_pe5jp")
+theme_override_font_sizes/font_size = 8
+text = "Buy"
+
+[node name="ExtraHeart2" type="Label" parent="BuyButton1"]
+layout_mode = 0
+offset_left = -20.00001
+offset_top = 1.6666641
+offset_right = -8.333353
+offset_bottom = 14.666664
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ddy65")
+theme_override_font_sizes/font_size = 9
+text = "20"
+
+[node name="ExtraHeart3" type="Label" parent="BuyButton1"]
+layout_mode = 0
+offset_left = -20.00001
+offset_top = 24.999996
+offset_right = -8.333353
+offset_bottom = 37.999996
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ddy65")
+theme_override_font_sizes/font_size = 9
+text = "30"
+
+[node name="ExtraHeart4" type="Label" parent="BuyButton1"]
+layout_mode = 0
+offset_left = -20.000008
+offset_top = 49.999996
+offset_right = -10.000008
+offset_bottom = 62.999996
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ddy65")
+theme_override_font_sizes/font_size = 9
+text = "35"
+
+[node name="ExtraHeart5" type="Label" parent="BuyButton1"]
+layout_mode = 0
+offset_left = -20.000008
+offset_top = 75.0
+offset_right = -8.333351
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ddy65")
+theme_override_font_sizes/font_size = 9
+text = "40"
+
+[node name="ExtraHeart6" type="Label" parent="BuyButton1"]
+layout_mode = 0
+offset_left = -21.666674
+offset_top = 100.0
+offset_right = -10.000017
+offset_bottom = 113.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ddy65")
+theme_override_font_sizes/font_size = 9
+text = "40"
+
+[node name="BuyButton2" type="Button" parent="."]
+offset_left = 171.0
+offset_top = 90.0
+offset_right = 206.0
+offset_bottom = 106.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0.5086216, 0.50980735, 1)
+theme_override_colors/icon_focus_color = Color(0.4541939, 0.4552468, 0.058870576, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.82701427, 0.40751913, 1)
+theme_override_fonts/font = ExtResource("2_pe5jp")
+theme_override_font_sizes/font_size = 8
+text = "Buy"
+
+[node name="BuyButton3" type="Button" parent="."]
+offset_left = 171.0
+offset_top = 106.0
+offset_right = 206.0
+offset_bottom = 122.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0.5086216, 0.50980735, 1)
+theme_override_colors/icon_focus_color = Color(0.4541939, 0.4552468, 0.058870576, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.82701427, 0.40751913, 1)
+theme_override_fonts/font = ExtResource("2_pe5jp")
+theme_override_font_sizes/font_size = 8
+text = "Buy"
+
+[node name="BuyButton4" type="Button" parent="."]
+offset_left = 171.0
+offset_top = 120.0
+offset_right = 206.0
+offset_bottom = 136.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0.5086216, 0.50980735, 1)
+theme_override_colors/icon_focus_color = Color(0.4541939, 0.4552468, 0.058870576, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.82701427, 0.40751913, 1)
+theme_override_fonts/font = ExtResource("2_pe5jp")
+theme_override_font_sizes/font_size = 8
+text = "Buy"
+
+[node name="BuyButton5" type="Button" parent="."]
+offset_left = 171.0
+offset_top = 135.0
+offset_right = 206.0
+offset_bottom = 151.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0.5086216, 0.50980735, 1)
+theme_override_colors/icon_focus_color = Color(0.4541939, 0.4552468, 0.058870576, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.82701427, 0.40751913, 1)
+theme_override_fonts/font = ExtResource("2_pe5jp")
+theme_override_font_sizes/font_size = 8
+text = "Buy"
+
+[node name="Coin" type="TextureRect" parent="."]
+offset_left = 149.0
+offset_top = 76.0
+offset_right = 160.0
+offset_bottom = 86.0
+texture = ExtResource("3_pe5jp")
 expand_mode = 1
 stretch_mode = 5
-metadata/_edit_lock_ = true
 
-[node name="MainPanel" type="PanelContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Coin2" type="TextureRect" parent="."]
+offset_left = 148.0
+offset_top = 90.0
+offset_right = 159.0
+offset_bottom = 100.0
+texture = ExtResource("3_pe5jp")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="MainContainer" type="VBoxContainer" parent="MainPanel"]
-layout_mode = 2
+[node name="Coin3" type="TextureRect" parent="."]
+offset_left = 148.0
+offset_top = 105.0
+offset_right = 159.0
+offset_bottom = 115.0
+texture = ExtResource("3_pe5jp")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="TitleLabel" type="Label" parent="MainPanel/MainContainer"]
-layout_mode = 2
+[node name="Coin4" type="TextureRect" parent="."]
+offset_left = 148.0
+offset_top = 119.0
+offset_right = 159.0
+offset_bottom = 129.0
+texture = ExtResource("3_pe5jp")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="HSeparator" type="HSeparator" parent="MainPanel/MainContainer"]
-layout_mode = 2
-
-[node name="TopInfo" type="HBoxContainer" parent="MainPanel/MainContainer/HSeparator"]
-layout_mode = 0
-offset_top = 16.0
-offset_right = 40.0
-offset_bottom = 16.0
-
-[node name="CoinsLabel" type="Label" parent="MainPanel/MainContainer/HSeparator"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Control" type="Control" parent="MainPanel/MainContainer/HSeparator/CoinsLabel"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="StatsLabel" type="Label" parent="MainPanel/MainContainer/HSeparator/CoinsLabel/Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="UpgradeScroll" type="ScrollContainer" parent="MainPanel/MainContainer"]
-layout_mode = 2
-
-[node name="UpgradeList" type="VBoxContainer" parent="MainPanel/MainContainer/UpgradeScroll"]
-layout_mode = 2
-
-[node name="ButtonRow" type="HBoxContainer" parent="MainPanel/MainContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="MainPanel/MainContainer/ButtonRow"]
-layout_mode = 2
-
-[node name="CloseButton" type="Button" parent="MainPanel/MainContainer/ButtonRow/Control"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="Control" type="Control" parent="MainPanel/MainContainer/ButtonRow/Control/CloseButton"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Coin5" type="TextureRect" parent="."]
+offset_left = 147.0
+offset_top = 135.0
+offset_right = 158.0
+offset_bottom = 145.0
+texture = ExtResource("3_pe5jp")
+expand_mode = 1
+stretch_mode = 5

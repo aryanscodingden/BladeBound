@@ -41,9 +41,9 @@ offset_bottom = 12.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_546lt")
 
 [node name="WaveTimerLabel" type="Label" parent="."]
-offset_left = 120.0
+offset_left = 112.0
 offset_top = 8.0
-offset_right = 224.0
+offset_right = 216.0
 offset_bottom = 21.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
@@ -56,12 +56,14 @@ text = "Next Wave: 30s"
 [node name="WaveTimerLabel2" type="Label" parent="."]
 offset_left = 216.0
 offset_top = 8.0
-offset_right = 306.0
+offset_right = 354.0
 offset_bottom = 16.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 1
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("4_7ihmi")
 theme_override_font_sizes/font_size = 6
 text = "Expires in: 30s"

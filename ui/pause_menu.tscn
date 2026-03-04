@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://cib6u8uj0mus7"]
+
+[ext_resource type="FontFile" uid="uid://kat47u62w380" path="res://font/Super Popstar.ttf" id="1_50142"]
+[ext_resource type="FontFile" uid="uid://co4w2spej4gmy" path="res://font/Spark Water.otf" id="2_ejwgg"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.57700837, 0.5770084, 0.57700837, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuPanel" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 208.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("1_50142")
+theme_override_font_sizes/font_size = 30
+text = "PAUSED"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 304.0
+offset_top = 168.0
+offset_right = 320.0
+offset_bottom = 179.0
+theme_override_fonts/font = ExtResource("2_ejwgg")
+theme_override_font_sizes/font_size = 8
+text = "v0.2"
+
+[node name="ResumeButton" type="Button" parent="."]
+offset_left = 104.0
+offset_top = 56.0
+offset_right = 208.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 0.84313726, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Pause"
+icon_alignment = 1
+
+[node name="RestartButton" type="Button" parent="."]
+offset_left = 104.0
+offset_top = 88.0
+offset_right = 208.0
+offset_bottom = 119.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 0.84313726, 0, 1)
+text = "Restart"
+icon_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="."]
+offset_left = 104.0
+offset_top = 120.0
+offset_right = 208.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 0.84313726, 0, 1)
+text = "Quit"
+icon_alignment = 1
